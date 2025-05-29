@@ -205,6 +205,7 @@ if (gagal.length === 0 && berhasil.length > 1 && ffmpegAvailable) {
 ## 🔗 Links
 
 - **GitHub Repository**: [https://github.com/danprat/multi-tts](https://github.com/danprat/multi-tts)
+- **Voice Models Guide**: [VOICE_MODELS.md](VOICE_MODELS.md) - Daftar lengkap voice models dan karakteristiknya
 - **Google Gemini API**: [https://ai.google.dev/gemini-api](https://ai.google.dev/gemini-api)
 - **FFmpeg**: [https://ffmpeg.org](https://ffmpeg.org)
 
