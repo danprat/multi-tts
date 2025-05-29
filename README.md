@@ -181,6 +181,74 @@ if (gagal.length === 0 && berhasil.length > 1 && ffmpegAvailable) {
 - Cek space disk tersedia
 - Manual download individual files sebagai alternatif
 
+## 🚀 Deployment
+
+### Deploy ke Vercel (Recommended)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/danprat/multi-tts)
+
+**Quick Deploy:**
+1. Klik tombol "Deploy with Vercel" di atas
+2. Login dengan GitHub account
+3. Fork repository dan deploy otomatis
+4. Dapatkan URL aplikasi: `https://your-app.vercel.app`
+
+**Manual Deploy:**
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Clone dan deploy
+git clone https://github.com/danprat/multi-tts.git
+cd multi-tts
+npm install
+vercel --prod
+```
+
+**Configuration:**
+- **Build Command**: `npm run vercel-build`
+- **Output Directory**: `dist`
+- **Node.js Version**: 18.x
+
+### Alternative Deployment
+
+**Railway:**
+```bash
+# Connect GitHub repo di Railway dashboard
+# Auto deploy dengan zero configuration
+```
+
+**Render:**
+```bash
+# Connect GitHub repo di Render dashboard  
+# Build Command: npm run build
+# Start Command: npm start
+```
+
+**Heroku:**
+```bash
+# Install Heroku CLI
+git clone https://github.com/danprat/multi-tts.git
+cd multi-tts
+heroku create your-app-name
+git push heroku main
+```
+
+### Production Notes
+
+**⚠️ Vercel Limitations:**
+- Serverless functions timeout (10s hobby / 900s pro)
+- File storage is ephemeral (tidak persistent)
+- Consider external storage untuk production
+
+**💡 Production Recommendations:**
+- Use Redis/Database untuk session storage
+- Implement cloud storage (AWS S3, Cloudinary) untuk audio files
+- Add rate limiting dan authentication
+- Monitor usage dan costs
+
+Untuk deployment guide lengkap, lihat [DEPLOYMENT.md](DEPLOYMENT.md)
+
 ## 🤝 Contributing
 
 1. Fork repository

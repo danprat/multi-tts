@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "name": "tts-multi-api",
+  "builds": [
+    {
+      "src": "src/web/server.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "src/**/*",
+          "dist/**/*",
+          "package.json",
+          "package-lock.json"
+        ]
+      }
+    },
+    {
+      "src": "src/web/public/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/src/web/server.ts"
+    },
+    {
+      "src": "/audio/(.*)",
+      "dest": "/src/web/server.ts"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/src/web/server.ts"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "src/web/server.ts": {
+      "maxDuration": 300
+    }
+  },
+  "outputDirectory": "dist"
+} 

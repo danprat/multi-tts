@@ -2,24 +2,30 @@
   "name": "tts-multi-api",
   "version": "1.0.0",
   "description": "Text to Speech dengan Multi API Key dan Parallel Processing",
-  "main": "dist/index.js",
+  "main": "dist/web/server.js",
   "scripts": {
     "dev": "tsx src/index.ts",
     "dev:web": "tsx src/web/server.ts",
     "build": "tsc",
+    "vercel-build": "npm run build && npm run copy-public",
+    "copy-public": "cp -r src/web/public dist/web/",
     "build:web": "tsc && npm run build:frontend",
     "build:frontend": "vite build",
-    "start": "node dist/index.js",
+    "start": "node dist/web/server.js",
     "start:web": "node dist/web/server.js",
     "test": "vitest",
     "preview": "vite preview"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [
     "tts",
     "text-to-speech",
     "parallel",
     "multi-api",
-    "web"
+    "web",
+    "vercel"
   ],
   "author": "TTS Multi API",
   "license": "MIT",
