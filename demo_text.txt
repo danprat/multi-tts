@@ -1,0 +1,5 @@
+Artificial Intelligence telah mengubah cara kita bekerja. Machine Learning memungkinkan komputer belajar dari data. Deep Learning menggunakan neural networks yang kompleks.
+
+Natural Language Processing memahami bahasa manusia. Text-to-Speech technology mengkonversi teks menjadi suara natural. Computer Vision dapat mengenali objek dalam gambar.
+
+Cloud Computing menyediakan infrastruktur scalable. Edge AI memproses data di perangkat lokal. Quantum Computing menjanjikan komputasi super cepat di masa depan. 

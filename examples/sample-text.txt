@@ -1,0 +1,17 @@
+Halo dan selamat datang di aplikasi Text-to-Speech Multi-API yang revolusioner! 
+
+Aplikasi ini dirancang khusus untuk memberikan pengalaman konversi teks ke audio yang luar biasa dengan menggunakan teknologi artificial intelligence terdepan. Dengan fitur multi-API key dan parallel processing, kami memastikan bahwa proses konversi Anda berjalan dengan efisiensi maksimal.
+
+Bayangkan jika Anda memiliki dokumen panjang yang perlu dikonversi menjadi audio. Dengan teknologi chunking cerdas yang kami implementasikan, teks akan secara otomatis dipecah menjadi bagian-bagian yang optimal untuk diproses. Setiap chunk akan diproses secara paralel menggunakan multiple API keys, sehingga waktu total processing dapat berkurang drastis.
+
+Fitur-fitur unggulan yang tersedia meliputi:
+- Parallel processing dengan multiple API keys untuk throughput tinggi
+- Smart chunking berdasarkan struktur kalimat untuk hasil audio yang natural
+- Auto recovery system untuk API keys yang mengalami masalah
+- Real-time progress tracking dengan statistik lengkap
+- Support multiple format audio seperti WAV, MP3, dan lainnya
+- Konfigurasi yang sangat fleksibel untuk berbagai kebutuhan
+
+Dengan menggunakan aplikasi ini, Anda dapat mengkonversi novel, artikel, dokumentasi, atau teks apa pun menjadi audio berkualitas tinggi dengan efisiensi yang belum pernah ada sebelumnya. Teknologi Google GenAI yang kami integrasikan memastikan kualitas audio yang jernih dan natural.
+
+Mari mulai perjalanan Anda dalam dunia text-to-speech yang baru dan rasakan sendiri keajaiban teknologi AI modern! 
