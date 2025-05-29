@@ -801,7 +801,11 @@ async function prosesTextAsync(sessionId: string, text: string, config: ConfigTt
         filename: path.basename(h.namaFile),
         path: path.basename(h.namaFile), // Simplified path for download
         size: stats.size,
-        chunkIndex: h.urutan
+        chunkIndex: h.urutan,
+        apiKeyUsed: h.apiKeyUsed ? {
+          displayName: h.apiKeyUsed.displayName,
+          hitCount: h.apiKeyUsed.hitCount
+        } : null
       };
     });
 
@@ -821,7 +825,11 @@ async function prosesTextAsync(sessionId: string, text: string, config: ConfigTt
       failedChunks: gagal.length > 0 ? gagal.map(chunk => ({
         chunkId: chunk.chunkId,
         urutan: chunk.urutan,
-        error: chunk.error
+        error: chunk.error,
+        apiKeyUsed: chunk.apiKeyUsed ? {
+          displayName: chunk.apiKeyUsed.displayName,
+          hitCount: chunk.apiKeyUsed.hitCount
+        } : null
       })) : undefined
     });
 
@@ -960,12 +968,20 @@ async function prosesRetryAsync(
         chunkId: chunk.chunkId,
         urutan: chunk.urutan,
         namaFile: chunk.namaFile,
-        ukuranFile: chunk.ukuranFile
+        ukuranFile: chunk.ukuranFile,
+        apiKeyUsed: chunk.apiKeyUsed ? {
+          displayName: chunk.apiKeyUsed.displayName,
+          hitCount: chunk.apiKeyUsed.hitCount
+        } : null
       })),
       stillFailedChunks: masihGagal.length > 0 ? masihGagal.map(chunk => ({
         chunkId: chunk.chunkId,
         urutan: chunk.urutan,
-        error: chunk.error
+        error: chunk.error,
+        apiKeyUsed: chunk.apiKeyUsed ? {
+          displayName: chunk.apiKeyUsed.displayName,
+          hitCount: chunk.apiKeyUsed.hitCount
+        } : null
       })) : undefined
     });
 

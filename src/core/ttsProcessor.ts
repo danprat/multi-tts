@@ -23,6 +23,8 @@ export const prosesTtsChunk = async (
     const modelConfig = buatKonfigurasiModel(config);
     const contents = buatContentsRequest(chunk.teks);
     
+    console.log(`🔑 Menggunakan API Key: ${apiKey.keyDisplayName} (Hit #${(apiKey.totalHits || 0) + 1}) untuk chunk ${chunk.urutan}`);
+    
     const response = await ai.models.generateContentStream({
       model: 'gemini-2.5-flash-preview-tts',
       config: modelConfig,
@@ -36,11 +38,16 @@ export const prosesTtsChunk = async (
       urutan: chunk.urutan,
       namaFile: hasilAudio.namaFile,
       ukuranFile: hasilAudio.ukuranFile,
-      berhasil: true
+      berhasil: true,
+      apiKeyUsed: {
+        id: apiKey.id,
+        displayName: apiKey.keyDisplayName || 'Unknown',
+        hitCount: (apiKey.totalHits || 0) + 1
+      }
     };
 
   } catch (error) {
-    console.error(`Error processing chunk ${chunk.id}:`, error);
+    console.error(`❌ Error processing chunk ${chunk.id} dengan API Key ${apiKey.keyDisplayName}:`, error);
     
     return {
       chunkId: chunk.id,
@@ -48,7 +55,12 @@ export const prosesTtsChunk = async (
       namaFile: '',
       ukuranFile: 0,
       berhasil: false,
-      error: error instanceof Error ? error.message : 'Unknown error'
+      error: error instanceof Error ? error.message : 'Unknown error',
+      apiKeyUsed: {
+        id: apiKey.id,
+        displayName: apiKey.keyDisplayName || 'Unknown',
+        hitCount: (apiKey.totalHits || 0) + 1
+      }
     };
   }
 };

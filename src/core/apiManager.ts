@@ -12,14 +12,26 @@ export class ApiManager {
    * Menambah API key baru
    */
   tambahApiKey(key: string): void {
+    const keyDisplayName = this.createDisplayName(key);
     const apiKey: ApiKey = {
       id: `key_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       key,
       sehat: true,
-      sedangDigunakan: false
+      sedangDigunakan: false,
+      totalHits: 0,
+      lastUsed: undefined,
+      keyDisplayName
     };
     
     this.apiKeys.push(apiKey);
+  }
+
+  /**
+   * Membuat display name untuk API key (AIza...xyz)
+   */
+  private createDisplayName(key: string): string {
+    if (key.length <= 8) return key;
+    return `${key.substring(0, 4)}...${key.substring(key.length - 4)}`;
   }
 
   /**
@@ -40,12 +52,16 @@ export class ApiManager {
   }
 
   /**
-   * Mengembalikan API key setelah selesai digunakan
+   * Mengembalikan API key setelah selesai digunakan dengan tracking hit
    */
-  kembalikanApiKey(keyId: string): void {
+  kembalikanApiKey(keyId: string, berhasil: boolean = true): void {
     const key = this.apiKeys.find(k => k.id === keyId);
     if (key) {
       key.sedangDigunakan = false;
+      if (berhasil) {
+        key.totalHits = (key.totalHits || 0) + 1;
+        key.lastUsed = new Date();
+      }
     }
   }
 

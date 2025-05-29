@@ -10,6 +10,9 @@ export interface ApiKey {
   key: string;
   sehat: boolean;
   sedangDigunakan: boolean;
+  totalHits?: number;
+  lastUsed?: Date;
+  keyDisplayName?: string; // untuk tampilan di UI (misalnya AIza...xyz)
 }
 
 export interface ChunkTeks {
@@ -26,6 +29,11 @@ export interface HasilAudio {
   ukuranFile: number;
   berhasil: boolean;
   error?: string;
+  apiKeyUsed?: {
+    id: string;
+    displayName: string;
+    hitCount: number;
+  };
 }
 
 export interface OpsiKonversiWav {
